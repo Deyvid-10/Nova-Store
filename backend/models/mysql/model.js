@@ -167,7 +167,7 @@ export class Model{
         ON v.prod_variation_id = c.prod_cart_prod_variation_id
         INNER JOIN prod_imgs img
         ON img.prod_imgs_prod_id = P.products_id
-        WHERE c.prod_cart_user_id = ? and prod_imgscol_main = 1
+        WHERE c.prod_cart_user_id = ? and prod_imgscol_main = 1 AND (img.prod_imgs_color = v.prod_variation_color or v.prod_variation_color is null)
         ORDER BY c.prod_cart_id
         `,
         [id]
