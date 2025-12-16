@@ -1,0 +1,129 @@
+/* Logo font */
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Lobster&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+.logoText{
+  font-family: "Lobster", serif;
+}
+
+/* Carousel button */
+.slick-dots li.slick-active .group {
+  background-color: #6366f1;
+  transform: scale(1.25);
+  opacity: 100%;
+}
+
+.slick-dots li.slick-active .group-details {
+  background-color: #6366f1;
+  transform: scale(1.2);
+  border-color: #6366f1;
+}
+
+.slick-dots{
+  /* height: 96px;  */
+  position: static !important;
+}
+
+.slick-dots li{
+  width: auto !important;
+  height: auto !important;
+}
+
+/* Progress bar */
+/* Estilo base para navegadores WebKit (Chrome, Safari, Edge) */
+progress.progress-bar::-webkit-progress-bar {
+  background-color: #e5e7eb;
+  border-radius: 9999px;
+}
+
+progress.progress-bar::-webkit-progress-value {
+  background-color: #4f39f6;
+  border-radius: 9999px;
+  transition: width 0.3s ease-in-out;
+}
+
+/* Firefox */
+progress.progress-bar::-moz-progress-bar {
+  background-color: #6366f1;
+  border-radius: 9999px;
+}
+
+/* Button styles */
+button:hover{
+  cursor: pointer;
+}
+
+button:disabled{
+  cursor: not-allowed;
+  opacity: 50%;
+}
+
+/* :root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+} */
