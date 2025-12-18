@@ -20,6 +20,7 @@ export const createRouter = () => {
   router.put('/cart/chageQuantity/:cartId',   controller.updateQuantityCartItems);
   router.get('/historical',   controller.getHistoricalInfo);
   router.post('/historical/insert',   controller.insertHistoricalInfo);
+  router.post('/comment/insert',   controller.insertComment);
 
   return router; 
 };

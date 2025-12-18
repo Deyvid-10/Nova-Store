@@ -10,9 +10,6 @@ import Slider from "react-slick";
 export default function DetailCarousel({product, color}){
     
     let imgs
-    console.log(color);
-    
-    console.log(color !== "null");
     
     if(color !== "null"){
         imgs = product.products_imgs.filter(prod => prod.color === color)

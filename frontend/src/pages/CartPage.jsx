@@ -12,18 +12,6 @@ import CartItems from '../components/CartItems';
 import { useMutation } from '@tanstack/react-query';
 import { addHistoricalData, queryClient } from '../util/requests';
 import { toast } from 'react-toastify';
-
-
-    const compras = [
-    { producto: "Laptop", cantidad: 1, precio: 1200.50 },
-    { producto: "Mouse", cantidad: 2, precio: 25.00 },
-    { producto: "Teclado", cantidad: 1, precio: 45.99 }
-  ];
-
-  // Generar array de valores
-  const values = compras.map(c => [c.producto, c.cantidad, c.precio]);
-
-  console.log(values);
   
 
 export default function CartPage() {

@@ -215,3 +215,25 @@ export async function addHistoricalData({order}) {
   
   return res;
 }
+
+export async function addComment({comment}) {  
+   let url = 'http://localhost:3000/comment/insert';
+   
+  const response = await fetch(url, {
+    method: 'POST',
+    body: JSON.stringify(comment),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    credentials: "include",
+  });
+
+  if (!response.ok) {
+    const error = new Error('An error occurred while fetching the events');
+    throw error;
+  }
+
+  const res  = await response.json();
+  
+  return res;
+}

@@ -15,10 +15,6 @@ export default function HistoricalPage(){
         queryFn: fetchHistoricalData
     })
 
-    // const [total, setTotal] = useState(0)
-    console.log(historicalData);
-    
-
 
     if(historicalPending){
         return <IsLoading/>
@@ -72,7 +68,8 @@ export default function HistoricalPage(){
                     
                     let orderTotal = "$" + (total + 10 + (0.18 * total)).toFixed(2)
                     
-                    return <li key={order.hist_record_id} className="py-5 m-5 rounded-xl lg:w-5xl border border-gray-200  lg:mx-auto gap-7 mx-2 px-4 sm:px-6 lg:px-8">
+                    return <li key={order.order_number} className="py-5 m-5 rounded-xl lg:w-5xl border border-gray-200  lg:mx-auto gap-7 mx-2 px-4 sm:px-6 lg:px-8">
+                        
                         <div className="md:flex justify-between border-b border-gray-200 pb-2 px-1">
                             <h2 className="md:text-xl font-medium text-gray-900">Order: <span>#{order.order_number.toString().padStart(14, "0")}</span></h2>
                             <p className="text-gray-700">{time >= recibedToDelivered ? "Delivered on" : "Delivery estimeted on:"} <span className="font-semibold">{deliveryStimate}</span></p>
@@ -144,7 +141,7 @@ export default function HistoricalPage(){
                                 <p className='text-sm font-semibold'>{orderTotal}</p>
                         </div>
                         <p className="flex justify-end mt-5">
-                            <Link to="/products" class="hover:cursor-pointer ml-auto font-medium text-indigo-600 hover:text-indigo-500">Continue Shopping</Link>
+                            <Link to="/products" className="hover:cursor-pointer ml-auto font-medium text-indigo-600 hover:text-indigo-500">Continue Shopping</Link>
                         </p>
                     </li>
                 })

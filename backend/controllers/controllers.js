@@ -2,7 +2,7 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken"
 import cookieParser from "cookie-parser";
 
-import { loginValidation, signupValidation } from '../util/zodValidation.js';
+import { commentValidation, loginValidation, signupValidation } from '../util/zodValidation.js';
 
 
 export class Controller{
@@ -120,6 +120,7 @@ export class Controller{
                 rate: comment.products_coments_rate,
                 date: comment.products_coments_date,
                 user_name: comment.users_name,
+                user_last_name: comment.users_last_name,
                 user_img: comment.users_img,
 
             })
@@ -448,5 +449,34 @@ export class Controller{
         
 
         return res.json({message: "Purchase confirmed"})
+    }
+
+    insertComment = async (req, res) =>{
+
+        const token = req.cookies.tokenSesion;        
+        
+        if(!token){
+            return res.send(false)
+        }
+
+        const {users_id: id} = jwt.verify(token, "SECRET_PASSWORD")
+
+        const comment = req.body  
+        comment.user = id
+        
+        const valitation = commentValidation(req.body)
+
+        if(!valitation.success)
+        {            
+            return res.json({errors: true, error: "Some field is empty, please populate"})
+        } 
+        console.log(comment);
+        
+        await this.Model.insertComment(comment)
+
+        
+        
+
+        return res.json({message: "Comment submited"})
     }
 }

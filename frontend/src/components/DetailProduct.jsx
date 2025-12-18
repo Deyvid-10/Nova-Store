@@ -70,7 +70,6 @@ export default function DetailProduct({idItem}) {
     const size = event.target.value.split("*")[1]
 
     setSearchParams({...itemParams, size})
-    console.log(searchParams);
   }
   
   function handleFormOptions(event){
@@ -95,7 +94,6 @@ export default function DetailProduct({idItem}) {
     }     
     
     const item =  { quantity: 1, variation_id:  Number(sizeId) || Number(colorId), product_id: data.products_id,}
-    console.log(item);
     
     addItemToCart({item})
     
@@ -263,7 +261,9 @@ export default function DetailProduct({idItem}) {
               <h3 className="lg:border-b lg:border-gray-200 text-xl font-bold pb-2 mb-5 text-gray-900 sm:text-2xl">Details</h3>
 
               <div className="mt-4 space-y-6">
-                <div className="text-sm text-gray-600" dangerouslySetInnerHTML={{__html: data.products_details}}></div>
+                <div className="text-sm text-gray-600" dangerouslySetInnerHTML={{__html: data.products_details}}>
+                  
+                </div>
               </div>
             </div>
           </div>
@@ -274,7 +274,7 @@ export default function DetailProduct({idItem}) {
             <div>
               <h3 className="lg:border-b lg:border-gray-200 text-xl font-bold pb-2 mb-5 text-gray-900 sm:text-2xl">Comments</h3>
                 
-              <Comments product = {data}/>
+              <Comments product = {data} idItem = {idItem}/>
               
             </div>
 

@@ -1,13 +1,11 @@
 import React from "react"
 
-import { Link, useNavigate } from "react-router-dom"
-import { SesionContext } from "../store/sesion-context"
-import { useContext } from "react"
+import { Link } from "react-router-dom"
 import { useEffect } from "react"
 import { toast } from "react-toastify"
 import IsLoading from "./IsLoading"
-import { deleteCartItem, fetchHistoricalData, queryClient, updateCartQuatity } from "../util/requests"
-import { useMutation, useQuery } from "@tanstack/react-query"
+import { deleteCartItem, queryClient, updateCartQuatity } from "../util/requests"
+import { useMutation } from "@tanstack/react-query"
 
 export default function CartItems({dataCartItems, cartItemsAreLoiding, cartItemsError}){
     

@@ -79,7 +79,8 @@ export class Model{
              FROM products_coments
              LEFT JOIN users
              ON products_coments_user = users_id
-             WHERE products_coments_prod_id = ?`,
+             WHERE products_coments_prod_id = ? 
+             ORDER BY products_coments_id DESC`,
             [products_id]
         )
         
@@ -234,7 +235,7 @@ export class Model{
         INNER JOIN prod_imgs img
         ON img.prod_imgs_prod_id = P.products_id
 
-        WHERE h.hist_record_user_id = ? AND prod_imgscol_main = 1
+        WHERE h.hist_record_user_id = ? AND prod_imgscol_main = 1  AND (img.prod_imgs_color = v.prod_variation_color or v.prod_variation_color is null)
         ORDER BY h.hist_record_id desc
         `,
         [id]
@@ -267,4 +268,43 @@ export class Model{
         
        }
     }
+
+    static async insertHistoricalInfo(order){
+        
+       try{
+         await connetion.query(`
+            INSERT INTO hist_record (hist_record_order_number, 
+                                hist_record_delivery_stimate, 
+                                hist_record_order_date, 
+                                hist_record_item_quantity, 
+                                hist_record_variation_id, 
+                                hist_record_prod_id, 
+                                hist_record_user_id, 
+                                hist_record_shipping_address, 
+                                hist_record_payment_method) 
+            VALUES (?)
+
+        `,
+        [order]
+        )
+       }
+       catch(e){
+        console.error(e);
+        
+       }
+    }
+
+    static async insertComment(comment){
+        
+               try{
+        await connetion.query(`
+            INSERT INTO products_coments (products_coments_text, products_coments_rate, products_coments_date, products_coments_prod_id, products_coments_user) 
+            VALUES (?, ?, ?, ?, ?)
+            `, [...Object.values(comment)]
+        )}
+        catch(e){
+        console.error(e);
+        
+       }
+    }   
 }
