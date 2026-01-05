@@ -12,7 +12,6 @@ export class Controller{
 
     // For consult a filter de products
     getProducts = async (req, res) => {
-        console.log("************************************ Soy una prueba ***************************************");
         
         const { newest, suggestions, sort, search, category, color, size, featured} = req.query
         
@@ -186,7 +185,7 @@ export class Controller{
 
         return res.cookie("tokenSesion", token, {
             httpOnly: true, 
-            secure: process.env.NODE_ENV === "production",   
+            secure: true,   
             maxAge: 1000 * 60 * 60
         }).json({correct: "logged"})
     }
@@ -237,7 +236,7 @@ export class Controller{
         
         return res.cookie("tokenSesion", token, {
             httpOnly: true, 
-            secure: process.env.NODE_ENV === "production",   
+            secure: true,   
             maxAge: 1000 * 60 * 60
         }).json({correct: "signedup"})
     }
