@@ -7,7 +7,6 @@ import { useMutation } from '@tanstack/react-query'
 
 
 export default function Comments({product, idItem}){
-    console.log(product);
     
     const [replyForm, setReplyForm] = useState(false)
 
@@ -49,11 +48,13 @@ export default function Comments({product, idItem}){
         data.date = new Date().toISOString().slice(0, 19).replace("T", " ")
         data.product_id = idItem
 
-        mutateComment({comment: data})
+        mutateComment({comment: data}, {
+            onSuccess:()=>{
+                event.target.reset()
+            }
+        })
 
-        if(commentIsError){
-            eve
-        }
+        
         
     }
 
