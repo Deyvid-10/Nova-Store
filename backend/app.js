@@ -11,8 +11,18 @@ app.use(express.json())
 app.use(static_('public'));
 app.use(cookieParser());
 
+const allowedOrigins = [
+  "http://localhost:5173",
+  "http://localhost:4173",
+  "https://mi-frontend.onrender.com"
+];
+
 const corsOptions = {
-    origin: ['http://localhost:5173/', 'http://localhost:4173/'],
+    origin: (origin, callback) =>{
+        if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    }
+    },
     methods: ["GET", "POST", "DELETE", "PUT"],
     // allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true
