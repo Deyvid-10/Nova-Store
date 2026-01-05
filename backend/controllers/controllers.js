@@ -299,6 +299,7 @@ export class Controller{
     getUserInfo = async (req, res) => {
 
         const token = req.cookies.tokenSesion;
+        console.log(token, "Este es el token");
         
         if(!token){
             return res.send(false)

@@ -80,7 +80,8 @@ export async function fetchLogout() {
 
 export async function fetchUser() {
   let url = `${backEndUrl}user`;
-
+  console.log(url);
+  
   const response = await fetch(url, {
     method: "GET",
     credentials: "include",
