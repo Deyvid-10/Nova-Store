@@ -2,7 +2,7 @@ import { QueryClient } from '@tanstack/react-query';
 
 export const queryClient = new QueryClient();
 
-const backEndUrl = import.meta.env.VITE_API_URL
+const backEndUrl = "https://mi-frontend.onrender.com/"
 
 export async function fetchProducts({queries}) {
   let url = `${backEndUrl}products/?${queries}`;
