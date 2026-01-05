@@ -12,14 +12,13 @@ export class Controller{
 
     // For consult a filter de products
     getProducts = async (req, res) => {
+        console.log("************************************ Soy una prueba ***************************************");
         
         const { newest, suggestions, sort, search, category, color, size, featured} = req.query
         
         let field = ''
         let order = ''
         let filter = []
-
-
         
         // Search & categories filters
         if(search){

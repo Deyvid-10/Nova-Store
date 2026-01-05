@@ -2,9 +2,11 @@ import { QueryClient } from '@tanstack/react-query';
 
 export const queryClient = new QueryClient();
 
-export async function fetchProducts({queries}) {
-  let url = 'http://localhost:3000/products/?' + queries;
+const backEndUrl = "https://nova-store-aj8a.onrender.com/"
 
+export async function fetchProducts({queries}) {
+  let url = `${backEndUrl}products/?${queries}`;
+  
   const response = await fetch(url);
 
   if (!response.ok) {
@@ -18,7 +20,7 @@ export async function fetchProducts({queries}) {
 }
 
 export async function fetchOneProduct({signal, idItem}) {
-  let url = 'http://localhost:3000/products/' + idItem;
+  let url = `${backEndUrl}products/${idItem}`;
   
   const response = await fetch(url, { signal: signal });
 
@@ -33,7 +35,7 @@ export async function fetchOneProduct({signal, idItem}) {
 }
 
 export async function credentials({formData, type, method}) {  
-   let url = 'http://localhost:3000/' + type;
+   let url = `${backEndUrl}` + type;
    
   const response = await fetch(url, {
     method: method,
@@ -56,7 +58,7 @@ export async function credentials({formData, type, method}) {
 }
   
 export async function fetchLogout() {
-  let url = 'http://localhost:3000/logout';
+  let url = `${backEndUrl}logout`;
 
   const response = await fetch(url, {
       method: 'POST',
@@ -75,7 +77,7 @@ export async function fetchLogout() {
 }
 
 export async function fetchUser() {
-  let url = 'http://localhost:3000/user';
+  let url = `${backEndUrl}user`;
 
   const response = await fetch(url, {
     method: "GET",
@@ -93,7 +95,7 @@ export async function fetchUser() {
 }
 
 export async function fetchCartItems() {
-  let url = 'http://localhost:3000/cart';
+  let url = `${backEndUrl}cart`;
 
   const response = await fetch(url, {
     method: "GET",
@@ -111,7 +113,7 @@ export async function fetchCartItems() {
 }
 
 export async function addCartItem({item}) {  
-   let url = 'http://localhost:3000/cart/add';
+   let url = `${backEndUrl}cart/add`;
    
   const response = await fetch(url, {
     method: 'POST',
@@ -133,7 +135,7 @@ export async function addCartItem({item}) {
 }
 
 export async function deleteCartItem({id}) {  
-   let url = `http://localhost:3000/cart/delete/${id}`
+   let url = `${backEndUrl}cart/delete/${id}`
    
    
   const response = await fetch(url, {
@@ -155,7 +157,7 @@ export async function deleteCartItem({id}) {
 }
 
 export async function updateCartQuatity({id, quantity}) {  
-   let url = `http://localhost:3000/cart/chageQuantity/${id}`
+   let url = `${backEndUrl}cart/chageQuantity/${id}`
    
   const response = await fetch(url, {
     method: 'PUT',
@@ -177,7 +179,7 @@ export async function updateCartQuatity({id, quantity}) {
 }
 
 export async function fetchHistoricalData() {
-  let url = 'http://localhost:3000/historical';
+  let url = `${backEndUrl}historical`;
 
   const response = await fetch(url, {
     method: "GET",
@@ -195,7 +197,7 @@ export async function fetchHistoricalData() {
 }
 
 export async function addHistoricalData({order}) {  
-   let url = 'http://localhost:3000/historical/insert';
+   let url = `${backEndUrl}historical/insert`;
    
   const response = await fetch(url, {
     method: 'POST',
@@ -217,7 +219,7 @@ export async function addHistoricalData({order}) {
 }
 
 export async function addComment({comment}) {  
-   let url = 'http://localhost:3000/comment/insert';
+   let url = `${backEndUrl}comment/insert`;
    
   const response = await fetch(url, {
     method: 'POST',
