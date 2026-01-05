@@ -17,6 +17,7 @@ export default function Search({...props}){
     }
 
     function handleSearchEnter(event){
+        event.preventDefault()
         if(event.key === 'Enter'){
             handleSearch()
         }

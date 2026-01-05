@@ -100,6 +100,12 @@ export default function UserForm({createAccount = false, editProfile = false}){
     })
     
   }
+  
+  function handleSearchEnter(event){
+      if(event.key === 'Enter'){
+          handleSearch()
+      }
+  }
 
   const [avatarIndex, setAvatarIndex] = useState(1)
 

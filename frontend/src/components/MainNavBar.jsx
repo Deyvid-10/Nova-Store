@@ -23,7 +23,6 @@ import {
   MenuItems 
 } from '@headlessui/react'
 import { Bars3Icon, ShoppingBagIcon, XMarkIcon, UserIcon } from '@heroicons/react/24/outline'
-import { use } from 'react';
 import { toast } from 'react-toastify';
 import { useEffect } from 'react';
 import IsLoading from './IsLoading.jsx';

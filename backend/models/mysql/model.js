@@ -1,11 +1,16 @@
 import mysql from "mysql2/promise";
-import { object } from "zod";
+import dotenv from "dotenv";
 
+// environment variable source
+const envFile = process.env.ENV_FILE || "./dev.env";
+dotenv.config({ path: envFile });
+
+// Configure data base connection
 const CONFIGURATION = {
-  host: "localhost",
-  user: "root",
-  password: "Contrasena20",
-  database: "e-commerce"
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  database: process.env.DB_DATABASE
 };
 
 const connetion = await mysql.createConnection(CONFIGURATION)
@@ -128,7 +133,7 @@ export class Model{
         console.log(credentials);
         
         await connetion.query(
-            "UPDATE users SET users_img = ?, users_name = ?, users_last_name = ?, users_email = ?, users_password = ?, users_address = ?, users_postal_code = ?,  users_phone_number = ?, `users_credit-card` = ? WHERE users_id = 14",
+            "UPDATE users SET users_img = ?, users_name = ?, users_last_name = ?, users_email = ?, users_password = ?, users_address = ?, users_postal_code = ?,  users_phone_number = ?, `users_credit-card` = ? WHERE users_id = ?",
             [...Object.values(credentials)]
         )
     }
@@ -163,11 +168,11 @@ export class Model{
     
         FROM prod_cart c
         INNER JOIN products p
-        ON c.prod_cart_prod_id = P.products_id
+        ON c.prod_cart_prod_id = p.products_id
         LEFT JOIN prod_variation v
         ON v.prod_variation_id = c.prod_cart_prod_variation_id
         INNER JOIN prod_imgs img
-        ON img.prod_imgs_prod_id = P.products_id
+        ON img.prod_imgs_prod_id = p.products_id
         WHERE c.prod_cart_user_id = ? and prod_imgscol_main = 1 AND (img.prod_imgs_color = v.prod_variation_color or v.prod_variation_color is null)
         ORDER BY c.prod_cart_id
         `,
@@ -233,7 +238,7 @@ export class Model{
         LEFT JOIN prod_variation v
         ON v.prod_variation_id = h.hist_record_variation_id
         INNER JOIN prod_imgs img
-        ON img.prod_imgs_prod_id = P.products_id
+        ON img.prod_imgs_prod_id = p.products_id
 
         WHERE h.hist_record_user_id = ? AND prod_imgscol_main = 1  AND (img.prod_imgs_color = v.prod_variation_color or v.prod_variation_color is null)
         ORDER BY h.hist_record_id desc
