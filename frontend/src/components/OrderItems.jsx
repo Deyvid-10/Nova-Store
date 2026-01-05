@@ -11,7 +11,7 @@ import { useMutation, useQuery } from "@tanstack/react-query"
 
 export default function OrderItems({products}){
 
-    const backEndUrl = "https://nova-store-aj8a.onrender.com/"
+    const backEndUrl = import.meta.env.VITE_API_URL
 
     const { user} = useContext(SesionContext)
     

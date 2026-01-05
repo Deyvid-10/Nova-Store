@@ -9,7 +9,7 @@ import Slider from "react-slick";
 
 export default function DetailCarousel({product, color}){
 
-    const backEndUrl = "https://nova-store-aj8a.onrender.com/"
+    const backEndUrl = import.meta.env.VITE_API_URL
     
     let imgs
     

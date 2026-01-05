@@ -7,7 +7,7 @@ import IsLoading from "./IsLoading"
 import { deleteCartItem, queryClient, updateCartQuatity } from "../util/requests"
 import { useMutation } from "@tanstack/react-query"
 
-const backEndUrl = "https://nova-store-aj8a.onrender.com/"
+const backEndUrl = import.meta.env.VITE_API_URL
 
 export default function CartItems({dataCartItems, cartItemsAreLoiding, cartItemsError}){
     
