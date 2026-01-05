@@ -130,7 +130,6 @@ export class Model{
     }
 
     static async editProfile(credentials){
-        console.log(credentials);
         
         await connetion.query(
             "UPDATE users SET users_img = ?, users_name = ?, users_last_name = ?, users_email = ?, users_password = ?, users_address = ?, users_postal_code = ?,  users_phone_number = ?, `users_credit-card` = ? WHERE users_id = ?",

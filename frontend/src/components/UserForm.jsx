@@ -93,6 +93,7 @@ export default function UserForm({createAccount = false, editProfile = false}){
     createAccount || editProfile ? avatar = fd.getAll('avatar') : undefined
     const data = Object.fromEntries(fd.entries())
     createAccount || editProfile ? data.avatar = avatar : undefined
+    console.log(data);
     
     mutate({formData: data, 
           type:  editProfile ? 'editProfile' : createAccount ? 'signup' : 'login',
@@ -142,7 +143,7 @@ export default function UserForm({createAccount = false, editProfile = false}){
         <div className={(createAccount || editProfile) ? "shadow border border-gray-100 p-5 rounded-2xl mt-7 sm:mx-auto sm:w-full max-w-full sm:max-w-md md:max-w-full" 
                                       : "shadow border border-gray-100 p-5 rounded-2xl mt-7 sm:mx-auto sm:w-full sm:max-w-sm"}>
           <form onSubmit={handleSubmit} className="space-y-6">
-            <input type="text" name='sdasdas'/>
+            {/* <input type="text" name='sdasdas'/> */}
             {(createAccount || editProfile) && 
               <div className='mt-2'>
                 <label  className="block text-sm font-medium text-gray-900">

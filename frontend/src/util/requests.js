@@ -2,8 +2,8 @@ import { QueryClient } from '@tanstack/react-query';
 
 export const queryClient = new QueryClient();
 
-const backEndUrl = "https://nova-store-aj8a.onrender.com/"
-// const backEndUrl = "http://localhost:3000/"
+// const backEndUrl = "https://nova-store-aj8a.onrender.com/"
+const backEndUrl = "http://localhost:3000/"
 
 export async function fetchProducts({queries}) {
   let url = `${backEndUrl}products/?${queries}`;
