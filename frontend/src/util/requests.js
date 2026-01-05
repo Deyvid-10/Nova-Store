@@ -7,6 +7,7 @@ console.log(backEndUrl);
 
 export async function fetchProducts({queries}) {
   let url = `${backEndUrl}products/?${queries}`;
+  console.log(url);
   
   const response = await fetch(url);
 
