@@ -3,7 +3,7 @@ import { QueryClient } from '@tanstack/react-query';
 export const queryClient = new QueryClient();
 
 const backEndUrl = "https://nova-store-aj8a.onrender.com/"
-console.log(backEndUrl);
+
 
 export async function fetchProducts({queries}) {
   let url = `${backEndUrl}products/?${queries}`;
@@ -17,7 +17,7 @@ export async function fetchProducts({queries}) {
   }
 
   const products = await response.json();
-  
+  console.log(products);
   return products;
 }
 

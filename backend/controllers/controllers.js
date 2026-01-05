@@ -237,7 +237,7 @@ export class Controller{
         
         return res.cookie("tokenSesion", token, {
             httpOnly: true, 
-            secure: process,   
+            secure: true,   
             maxAge: 1000 * 60 * 60,
             sameSite: "none"
         }).json({correct: "signedup"})
