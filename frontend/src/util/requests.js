@@ -59,8 +59,6 @@ export async function credentials({formData, type, method}) {
   
 export async function fetchLogout() {
   let url = `${backEndUrl}logout`;
-  console.log(url);
-  
   
   const response = await fetch(url, {
       method: 'POST',
@@ -74,7 +72,7 @@ export async function fetchLogout() {
   }
 
   const message = await response.json();  
-  console.log(message);
+ 
   return message;
 }
 
