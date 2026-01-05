@@ -317,15 +317,17 @@ export class Controller{
 
     logOut = (req, res) => {
         
-        return res.clearCookie("tokenSesion").json({ message: "Logged Out" })
+        return res.clearCookie("tokenSesion", 
+            {httpOnly: true, 
+            secure: true,   
+            sameSite: "none"}).json({ message: "Logged Out" })
         
     }
 
     insertCartItems = async (req, res) => {
 
         const token = req.cookies.tokenSesion;
-        
-        
+
         if(!token){
             return res.send(false)
         }

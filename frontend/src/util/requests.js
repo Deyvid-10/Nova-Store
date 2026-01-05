@@ -36,7 +36,6 @@ export async function fetchOneProduct({signal, idItem}) {
 
 export async function credentials({formData, type, method}) {  
    let url = `${backEndUrl}` + type;
-   console.log(url);
    
   const response = await fetch(url, {
     method: method,
@@ -60,7 +59,9 @@ export async function credentials({formData, type, method}) {
   
 export async function fetchLogout() {
   let url = `${backEndUrl}logout`;
-
+  console.log(url);
+  
+  
   const response = await fetch(url, {
       method: 'POST',
       credentials: "include",
@@ -73,20 +74,17 @@ export async function fetchLogout() {
   }
 
   const message = await response.json();  
-  
+  console.log(message);
   return message;
 }
 
 export async function fetchUser() {
   let url = `${backEndUrl}user`;
-  console.log(url);
   
   const response = await fetch(url, {
     method: "GET",
     credentials: "include",
   });
-  
-  console.log(!response.ok, "Se pudo hacer la solicitud?");
   
   if (!response.ok) {
     const error = new Error('An error occurred while fetching the events');
@@ -94,7 +92,6 @@ export async function fetchUser() {
   }
 
   const user = await response.json();  
-  console.log(user, "UserData");
   
   return user;
 }
