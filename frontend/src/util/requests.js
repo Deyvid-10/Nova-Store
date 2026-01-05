@@ -2,12 +2,11 @@ import { QueryClient } from '@tanstack/react-query';
 
 export const queryClient = new QueryClient();
 
-const backEndUrl = "https://nova-store-aj8a.onrender.com/"
-
+// const backEndUrl = "https://nova-store-aj8a.onrender.com/"
+const backEndUrl = "http://localhost:3000/"
 
 export async function fetchProducts({queries}) {
   let url = `${backEndUrl}products/?${queries}`;
-  console.log(url);
   
   const response = await fetch(url);
 
@@ -17,7 +16,6 @@ export async function fetchProducts({queries}) {
   }
 
   const products = await response.json();
-  console.log(products);
   return products;
 }
 
@@ -38,6 +36,7 @@ export async function fetchOneProduct({signal, idItem}) {
 
 export async function credentials({formData, type, method}) {  
    let url = `${backEndUrl}` + type;
+   console.log(url);
    
   const response = await fetch(url, {
     method: method,
@@ -86,13 +85,16 @@ export async function fetchUser() {
     method: "GET",
     credentials: "include",
   });
-
+  
+  console.log(!response.ok, "Se pudo hacer la solicitud?");
+  
   if (!response.ok) {
     const error = new Error('An error occurred while fetching the events');
     throw error;
   }
 
   const user = await response.json();  
+  console.log(user, "UserData");
   
   return user;
 }

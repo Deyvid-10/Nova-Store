@@ -151,7 +151,8 @@ export class Controller{
     logIn = async (req, res) => {
         
         const valitation = loginValidation(req.body)
-
+        console.log(valitation);
+        
         if(!valitation.success)
         {
             const listOfErrors = valitation.error.format()
@@ -300,9 +301,10 @@ export class Controller{
 
         const token = req.cookies.tokenSesion;
         
-        
         if(!token){
             console.log(token, "Este es el token");
+            console.log(false);
+            
             return res.send(false)
         }
 

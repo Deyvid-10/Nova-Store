@@ -55,7 +55,6 @@ export default function MainNavBar() {
   const {data, isLoading, isError: isErrorUser} = user
   
   const { dataCartItems, cartItemsError } = cartItems
-  console.log(data);
   
   useEffect(()=>{
     

@@ -18,13 +18,13 @@ app.use(cookieParser());
 // ];
 
 const corsOptions = {
-    origin: "*",
+    origin: true,
     methods: ["GET", "POST", "DELETE", "PUT"],
     // allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true
 }
 app.use(cors(corsOptions))
-app.set("trust proxy", 1);
+
 app.use('/', createRouter())
 
 
