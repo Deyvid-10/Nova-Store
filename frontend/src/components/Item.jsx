@@ -55,7 +55,7 @@ export default function Item({product}){
 
               <div className="mt-4">
                 <div>
-                  <h3 className="font-semibold text-gray-700 w-[20] h-[72px] overflow-y-hidden">
+                  <h3 className="font-semibold text-gray-700 w-5 h-[72px] overflow-y-hidden">
                   
                       <span aria-hidden="true" className="absolute inset-0" />
                       {product.products_name}
