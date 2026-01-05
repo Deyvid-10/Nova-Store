@@ -14,9 +14,9 @@ const optionsColumns = {
   ],
 
   categories: [
-    { name: 'Technology', to: '/products' },
-    { name: 'Clothing and accessories', to: '/products' },
-    { name: 'Home and decoration', to: '/products' },
+    { name: 'Technology', to: '/products?category=Technology' },
+    { name: 'Clothing and accessories', to: '/products?category=Clothing+and+accessories' },
+    { name: 'Home and decoration', to: '/products?category=Home+and+decoration' },
     // { name: 'Beauty and Personal Care', to: '/products' },
   ],
 

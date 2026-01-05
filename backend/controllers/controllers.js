@@ -186,7 +186,8 @@ export class Controller{
         return res.cookie("tokenSesion", token, {
             httpOnly: true, 
             secure: true,   
-            maxAge: 1000 * 60 * 60
+            maxAge: 1000 * 60 * 60,
+            sameSite: "none"
         }).json({correct: "logged"})
     }
 
@@ -237,7 +238,8 @@ export class Controller{
         return res.cookie("tokenSesion", token, {
             httpOnly: true, 
             secure: true,   
-            maxAge: 1000 * 60 * 60
+            maxAge: 1000 * 60 * 60,
+            sameSite: "none"
         }).json({correct: "signedup"})
     }
 
