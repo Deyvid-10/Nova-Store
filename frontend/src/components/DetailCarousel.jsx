@@ -8,6 +8,8 @@ import Arrow from './Arrow';
 import Slider from "react-slick";
 
 export default function DetailCarousel({product, color}){
+
+    const backEndUrl = "https://nova-store-aj8a.onrender.com/"
     
     let imgs
     
@@ -30,7 +32,7 @@ export default function DetailCarousel({product, color}){
 
                     <img
                     alt={'item image ' + i}
-                    src={'http://localhost:3000/' +  imgs[i].img}
+                    src={backEndUrl +  imgs[i].img}
                     className="size-full rounded-lg object-cover"
                     />
 
@@ -50,7 +52,7 @@ export default function DetailCarousel({product, color}){
             {imgs.map((img, index) => <div className='w-full h-[700px]' key={index}>
                 <img
                 alt={'images number ' + index}
-                src={'http://localhost:3000/' + img.img}
+                src={backEndUrl + img.img}
                 className="size-full rounded-lg object-contain"
                         />
             </div>)}

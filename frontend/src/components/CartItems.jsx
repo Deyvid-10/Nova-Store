@@ -7,6 +7,8 @@ import IsLoading from "./IsLoading"
 import { deleteCartItem, queryClient, updateCartQuatity } from "../util/requests"
 import { useMutation } from "@tanstack/react-query"
 
+const backEndUrl = "https://nova-store-aj8a.onrender.com/"
+
 export default function CartItems({dataCartItems, cartItemsAreLoiding, cartItemsError}){
     
 
@@ -85,7 +87,7 @@ export default function CartItems({dataCartItems, cartItemsAreLoiding, cartItems
                 <li key={product.prod_cart_id} className="flex flex-col sm:flex-row py-6 item-center">
                     
                     <div className="sm:size-24 size-6/12 overflow-hidden rounded-md border mx-auto mb-5 sm:m-0 border-gray-200">
-                        <img alt={"Image for product "+ product.prod_name} src={'http://localhost:3000/' + product.main_img} className="size-full object-cover" />
+                        <img alt={"Image for product "+ product.prod_name} src={backEndUrl + product.main_img} className="size-full object-cover" />
                     </div>
                     <div className="ml-4 flex flex-1 flex-col justify-between ">
                         <div>

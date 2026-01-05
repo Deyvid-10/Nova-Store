@@ -9,7 +9,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-const urlImg = 'http://localhost:3000/'
+const urlImg = "https://nova-store-aj8a.onrender.com/"
 
 export default function Item({product}){
 

@@ -11,6 +11,8 @@ import { useMutation, useQuery } from "@tanstack/react-query"
 
 export default function OrderItems({products}){
 
+    const backEndUrl = "https://nova-store-aj8a.onrender.com/"
+
     const { user} = useContext(SesionContext)
     
     const {data, isLoading} = user
@@ -32,7 +34,7 @@ export default function OrderItems({products}){
                 <li key={product.hist_record_id} className="flex flex-col sm:flex-row py-6 item-center">
                     
                     <div className="sm:size-24 size-6/12 overflow-hidden rounded-md border mx-auto mb-5 sm:m-0 border-gray-200">
-                        <img alt={"Image for product "+ product.prod_name} src={'http://localhost:3000/' + product.img} className="size-full object-cover" />
+                        <img alt={"Image for product "+ product.prod_name} src={backEndUrl + product.img} className="size-full object-cover" />
                     </div>
                     <div className="ml-4 flex flex-1 flex-col justify-between ">
                         <div>

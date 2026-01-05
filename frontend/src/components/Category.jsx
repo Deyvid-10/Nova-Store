@@ -9,21 +9,21 @@ import {Link} from 'react-router-dom'
     description: 'Explore the latest in tech innovation',
     imageSrc: 'https://tailwindcss.com/plus-assets/img/ecommerce-images/home-page-02-edition-01.jpg',
     imageAlt: 'Technology category.',
-    to: 'http://localhost:5173/products?category=Technology',
+    to: '/products?category=Technology',
   },
   {
     name: 'Clothing and accessories',
     description: 'Discover fashion that fits your lifestyle',
     imageSrc: Clothing,
     imageAlt: 'Clothing and accessories category.',
-    to: 'http://localhost:5173/products?category=Clothing and accessories',
+    to: '/products?category=Clothing and accessories',
   },
   {
     name: 'Home and decoration',
     description: 'Daily commute essentials',
     imageSrc: 'https://assets-news.housing.com/news/wp-content/uploads/2018/01/30130410/Decor-trends-that-will-define-2018-FB-1200x700-compressed.jpg',
     imageAlt: 'Home and decoration category.',
-    to: 'http://localhost:5173/products?category=Homo+and+decoration',
+    to: '/products?category=Homo+and+decoration',
   },
 ]
 

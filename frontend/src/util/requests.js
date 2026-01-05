@@ -2,7 +2,8 @@ import { QueryClient } from '@tanstack/react-query';
 
 export const queryClient = new QueryClient();
 
-const backEndUrl = "https://mi-frontend.onrender.com/"
+const backEndUrl = "https://nova-store-aj8a.onrender.com/"
+console.log(backEndUrl);
 
 export async function fetchProducts({queries}) {
   let url = `${backEndUrl}products/?${queries}`;
