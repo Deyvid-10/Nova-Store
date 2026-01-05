@@ -14,7 +14,7 @@ app.use(cookieParser());
 const allowedOrigins = [
   "http://localhost:5173",
   "http://localhost:4173",
-  "https://mi-frontend.onrender.com"
+  "https://nova-store-aj8a.onrender.com/"
 ];
 
 const corsOptions = {
