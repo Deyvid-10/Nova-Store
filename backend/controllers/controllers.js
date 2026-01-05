@@ -183,7 +183,7 @@ export class Controller{
             return res.json(({errors: true, errorsList: ['Password incorrect']}))
         }
 
-        const token = jwt.sign({users_id}, "SECRET_PASSWORD", {expiresIn: '1h'})
+        const token = jwt.sign({users_id}, process.env.JWT_SECRET, {expiresIn: '1h'})
 
         return res.cookie("tokenSesion", token, {
             httpOnly: true, 
@@ -234,7 +234,7 @@ export class Controller{
         
         const [{users_id}] = await this.Model.getLoginCredentials(req.body.email)
         
-        const token = jwt.sign({users_id}, "SECRET_PASSWORD", {expiresIn: '1h'})
+        const token = jwt.sign({users_id}, process.env.JWT_SECRET, {expiresIn: '1h'})
         
         return res.cookie("tokenSesion", token, {
             httpOnly: true, 
@@ -251,7 +251,7 @@ export class Controller{
             return res.send({error: "You are not logged"})
         }
 
-        const {users_id: id} = jwt.verify(token, "SECRET_PASSWORD")
+        const {users_id: id} = jwt.verify(token, process.env.JWT_SECRET)
 
         const data = req.body
         
@@ -304,7 +304,7 @@ export class Controller{
             return res.send(false)
         }
 
-        const {users_id: id} = jwt.verify(token, "SECRET_PASSWORD")
+        const {users_id: id} = jwt.verify(token, process.env.JWT_SECRET)
         
         const userData = await this.Model.getUserData(id)
 
@@ -326,7 +326,7 @@ export class Controller{
             return res.send(false)
         }
 
-        const {users_id: id} = jwt.verify(token, "SECRET_PASSWORD")
+        const {users_id: id} = jwt.verify(token, process.env.JWT_SECRET)
 
         const item = req.body
         item.user = id   
@@ -349,7 +349,7 @@ export class Controller{
             return res.send(false)
         }
 
-        const {users_id: id} = jwt.verify(token, "SECRET_PASSWORD")
+        const {users_id: id} = jwt.verify(token, process.env.JWT_SECRET)
         const cartItems = await this.Model.getCartItems(id)
         
         return res.json(cartItems)
@@ -381,7 +381,7 @@ export class Controller{
             return res.send(false)
         }
 
-        const {users_id: id} = jwt.verify(token, "SECRET_PASSWORD")
+        const {users_id: id} = jwt.verify(token, process.env.JWT_SECRET)
 
         const historicalInfo = await this.Model.getHistoricalInfo(id)
 
@@ -430,7 +430,7 @@ export class Controller{
             return res.send(false)
         }
 
-        const {users_id: id} = jwt.verify(token, "SECRET_PASSWORD")
+        const {users_id: id} = jwt.verify(token, process.env.JWT_SECRET)
 
         const order = req.body
 
@@ -459,7 +459,7 @@ export class Controller{
             return res.send(false)
         }
 
-        const {users_id: id} = jwt.verify(token, "SECRET_PASSWORD")
+        const {users_id: id} = jwt.verify(token, process.env.JWT_SECRET)
 
         const comment = req.body  
         comment.user = id
