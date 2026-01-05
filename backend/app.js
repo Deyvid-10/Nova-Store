@@ -14,7 +14,7 @@ app.use(cookieParser());
 const allowedOrigins = [
   "http://localhost:5173",
   "http://localhost:4173",
-  "https://nova-store-aj8a.onrender.com/"
+  "https://nova-store-10.netlify.app/"
 ];
 
 const corsOptions = {
