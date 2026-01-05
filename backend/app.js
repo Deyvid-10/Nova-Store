@@ -12,7 +12,7 @@ app.use(static_('public'));
 app.use(cookieParser());
 
 const corsOptions = {
-    origin: ['http://localhost:5173/', 'http://localhost:4173/, https://mi-frontend.onrender.com/'],
+    origin: ['http://localhost:5173/', 'http://localhost:4173/', 'https://mi-frontend.onrender.com/'],
     methods: ["GET", "POST", "DELETE", "PUT"],
     // allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true
@@ -25,5 +25,5 @@ app.use('/', createRouter())
 const PORT = process.env.PORT ?? 3000;
 
 app.listen(PORT, () => {
-    console.log(`Server listening on port  http://localhost:${PORT}`)
+    console.log(`Server listening on port ${PORT}`)
 })
